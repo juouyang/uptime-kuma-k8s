@@ -2,6 +2,9 @@
 
 Oringinal Document: https://thedatabaseme.de/2022/02/12/how-to-deploy-uptime-kuma-on-kubernetes/
 
+<details>
+  <summary>Click to expand!</summary>
+
 Quick instruction on how to deploy Uptime-Kuma on your Kubernetes cluster.
 
 Uptime-Kuma is an easy to deploy and easy to use monitoring tool, that has several “Monitoring Types” like HTTP(s), port-checking, DNS and some more. Also it includes some real nice alerting mechanisms as Mail, Teams and Gotify. If you want to find out more about Uptime-Kuma, you can find some here.
@@ -118,3 +121,5 @@ spec:
 ```
 
 After deploying all manifests, you should be able to get connected to Uptime-Kuma (you of course have to configure the DNS name on your Networks DNS Server). On first login, you have to create an admin user. After this is done, you are redirected to the dashboard. Have fun playing around with Uptime-Kuma!
+
+</details>
