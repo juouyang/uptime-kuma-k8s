@@ -31,7 +31,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: uptime-kuma-service
-  namespace: kuma
+  namespace: uptime-kuma
 spec:
   selector:
     app: uptime-kuma
@@ -48,7 +48,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: uptime-kuma
-  namespace: kuma
+  namespace: uptime-kuma
 spec:
   replicas: 1
   serviceName: uptime-kuma-service
@@ -97,7 +97,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: kuma
-  namespace: kuma
+  namespace: uptime-kuma
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: uptime-kuma-service
-  namespace: kuma
+  namespace: uptime-kuma
 spec:
   selector:
     app: uptime-kuma

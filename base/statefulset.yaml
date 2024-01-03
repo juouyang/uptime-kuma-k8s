@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: uptime-kuma
-  namespace: kuma
+  namespace: uptime-kuma
 spec:
   replicas: 1
   serviceName: uptime-kuma-service
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: uptime-kuma
-          image: louislam/uptime-kuma:1.17.1
+          image: louislam/uptime-kuma:1.23.11
           env:
             - name: UPTIME_KUMA_PORT
               value: "3001"
