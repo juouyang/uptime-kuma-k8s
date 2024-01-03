@@ -4,10 +4,11 @@ metadata:
   name: kuma
   namespace: uptime-kuma
   annotations:
-    kubernetes.io/ingress.class: "nginx"
+    # kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     cert-manager.io/cluster-issuer: "letsencrypt-staging"
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - uptime.apps.k8s.juouyang.com

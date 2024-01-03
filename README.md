@@ -123,3 +123,12 @@ spec:
 After deploying all manifests, you should be able to get connected to Uptime-Kuma (you of course have to configure the DNS name on your Networks DNS Server). On first login, you have to create an admin user. After this is done, you are redirected to the dashboard. Have fun playing around with Uptime-Kuma!
 
 </details>
+
+
+
+https://github.com/louislam/uptime-kuma/issues/694
+
+```
+# /etc/export
+/opt/nfsroot *(rw,no_root_squash,no_all_squash,sync,insecure,no_subtree_check)
+```
