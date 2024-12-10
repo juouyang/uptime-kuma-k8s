@@ -15,6 +15,7 @@ spec:
         app: uptime-kuma
     spec:
       containers:
+        # 主容器：Uptime Kuma
         - name: uptime-kuma
           image: louislam/uptime-kuma:1.23.15
           env:
@@ -29,6 +30,29 @@ spec:
           volumeMounts:
             - name: kuma-data
               mountPath: /app/data
+
+        # Sidecar 容器：備份到 Oracle Cloud Object Storage
+        - name: kuma-backup
+          image: ghcr.io/oracle/oci-cli:latest
+          command: ["/bin/bash", "-c", "sleep infinity"]
+          volumeMounts:
+            - name: kuma-data
+              mountPath: /data
+            - name: oci-secret
+              mountPath: /secrets
+              readOnly: true
+          env:
+            - name: OCI_CLI_CONFIG_FILE
+              value: /secrets/config
+            - name: OCI_CLI_KEY_FILE
+              value: /secrets/oci_api_key.pem
+            - name: OCI_CLI_SUPPRESS_FILE_PERMISSIONS_WARNING
+              value: "True"
+
+      volumes:
+        - name: oci-secret
+          secret:
+            secretName: oci-secret
 
   volumeClaimTemplates:
     - metadata:

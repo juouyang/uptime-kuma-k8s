@@ -7,3 +7,4 @@ resources:
 - namespace.yaml
 - service.yaml
 - statefulset.yaml
+- cronjob.yaml

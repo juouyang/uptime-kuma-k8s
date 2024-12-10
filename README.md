@@ -132,3 +132,9 @@ https://github.com/louislam/uptime-kuma/issues/694
 # /etc/export
 /opt/nfsroot *(rw,no_root_squash,no_all_squash,sync,insecure,no_subtree_check)
 ```
+
+---
+
+```
+kubectl exec -it $(kubectl get pod -n uptime-kuma -l app=uptime-kuma -o jsonpath='{.items[0].metadata.name}') -n uptime-kuma -c kuma-backup -- /bin/bash
+```
