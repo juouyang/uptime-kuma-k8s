@@ -50,8 +50,9 @@ spec:
               - -c
               - |
                 kubectl exec -n uptime-kuma -c kuma-backup uptime-kuma-0 -- /bin/bash -c "
-                tar -czf /tmp/backup.tar.gz -C /data .
-                oci os object put -bn uptime-kuma-backup --file /tmp/backup.tar.gz --name backup.tar.gz
-                rm -f /tmp/backup.tar.gz
+                  cp -R /data /tmp/data-backup && \
+                  tar -czf /tmp/backup.tar.gz -C /tmp/data-backup . && \
+                  oci os object put -bn uptime-kuma-backup --file /tmp/backup.tar.gz --name backup.tar.gz --force && \
+                  rm -rf /tmp/data-backup && rm -f /tmp/backup.tar.gz
                 "
           restartPolicy: Never
